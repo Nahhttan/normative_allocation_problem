@@ -2,6 +2,8 @@
 
 _Nathan LANGLOIS, personal thoughts, inspired by courses allocation mechanisms in French Grandes Écoles._
 
+A more homogenous version in terms of languages will come soon! :)
+
 # Introduction: framework
 
 ## Individuals, courses and preferences
@@ -82,10 +84,10 @@ For example, the following matrix corresponds to allocating $X$ to $A$ (producin
 
 $$
 \begin{bmatrix}
-\blue 4 & 3 & 2 & 1 \\
-4 & \blue 3 & 2 & 1 \\
-4 & 3 & \blue 2 & 1 \\
-3 & 1 & 4 & \blue 2 \\ 
+\color{orange} 4 & 3 & 2 & 1 \\
+4 & \color{orange} 3 & 2 & 1 \\
+4 & 3 & \color{orange} 2 & 1 \\
+3 & 1 & 4 & \color{orange} 2 \\ 
 \end{bmatrix}
 $$
 
@@ -95,10 +97,10 @@ Another allocation could be:
 
 $$
 \begin{bmatrix}
-4 & 3 & 2 & \red 1 \\
-\red 4 & 3 & 2 & 1 \\
-4 & \red 3 & 2 & 1 \\
-3 & 1 & \red 4 & 2 \\ 
+4 & 3 & 2 & \color{red} 1 \\
+\color{red} 4 & 3 & 2 & 1 \\
+4 & \color{red} 3 & 2 & 1 \\
+3 & 1 & \color{red} 4 & 2 \\ 
 \end{bmatrix}
 $$
 
@@ -108,10 +110,10 @@ Note that we can also, when possible, represent 2 allocations on a same matrix t
 
 $$
 \begin{bmatrix}
-\blue 4 & 3 & 2 & \red 1 \\
-\red 4 & \blue 3 & 2 & 1 \\
-4 & \red 3 & \blue 2 & 1 \\
-3 & 1 & \red 4 & \blue 2 \\ 
+\color{orange} 4 & 3 & 2 & \color{red} 1 \\
+\color{red} 4 & \color{orange} 3 & 2 & 1 \\
+4 & \color{red} 3 & \color{orange} 2 & 1 \\
+3 & 1 & \color{red} 4 & \color{orange} 2 \\ 
 \end{bmatrix}
 $$
 
@@ -121,7 +123,7 @@ $$
 
 But in the former example, what is preferable? $(4,3,2,2)$ or $(4,4,3,1)$?
 
-- The utilitarist view would state that $(4,4,3,1)$ is better, because the sum of its components amounts to $12$, and the sum of $(4,3,2,2)$ is only $11$.
+- The utilitarian view would state that $(4,4,3,1)$ is better, because the sum of its components amounts to $12$, and the sum of $(4,3,2,2)$ is only $11$.
 - The egalitarian view, based on the leximin method, would say that $(4,3,2,2)$ is better, because its minimum component is $2$, and the minimum of $(4,4,3,1)$ is only $1$.
 
 Moreover, it appears (and can easily be proven) that it cannot be found any allocation that would reconciliates both view by being better than both allocations according to both views. So we are stuck with a moral conflict.
@@ -221,9 +223,10 @@ On construit cet ensemble par récurrence. On note $\mathcal A_{NE}^P$ l'ensembl
 
 Il y a autant d'étapes que d'allocations possibles (i.e., $n!$).
 
-À l'étape 1, $\mathcal A_{NE}^P=\empty$. On considère l'allocation $a_1$. On ajoute $a_1$ à $\mathcal A_{NE}^P$, puisque $a_1$ est normativement efficace au sein de l'ensemble des allocations $\mathcal A_{NE}^P \cup \{a_1\}$.
+À l'étape 1, $\mathcal A_{NE}^P=\emptyset$. On considère l'allocation $a_1$. On ajoute $a_1$ à $\mathcal A_{NE}^P$, puisque $a_1$ est normativement efficace au sein de l'ensemble des allocations $\mathcal A_{NE}^P \cup \{a_1\}$.
 
 À l'étape $n$, supposons qu'on a $\mathcal A_{NE}^P=\{a_{(1)},\dots,a_{(n)}\}$ avec
+
 $$
 \begin{cases}
    a_{(1)}\succeq_u\dots\succeq_u a_{(n)} \\
@@ -359,10 +362,10 @@ The matrix preferences we gave as an exemple earlier works:
 
 $$
 \begin{bmatrix}
-\blue 4 & 3 & 2 & \red 1 \\
-\red 4 & \blue 3 & 2 & 1 \\
-4 & \red 3 & \blue 2 & 1 \\
-3 & 1 & \red 4 & \blue 2 \\ 
+\color{orange} 4 & 3 & 2 & \color{red} 1 \\
+\color{red} 4 & \color{orange} 3 & 2 & 1 \\
+4 & \color{red} 3 & \color{orange} 2 & 1 \\
+3 & 1 & \color{red} 4 & \color{orange} 2 \\ 
 \end{bmatrix}
 $$
 
@@ -388,27 +391,27 @@ The reasoning is the following:
 
 - either we give the first course to one of students $A,B,C,D$, and then the matrix representing the preferences of the 4 remaining students over the 4 remaining courses is the same as for $n=4$, and so we can best produce the vectors $(5,4,4,3,1)$ and $(5,4,3,2,2)$;
     
-    $$
-    \begin{bmatrix}
-    \blue 5 & 4 & 3 & 2 & \red 1 \\
-    \red 5 & \blue 4 & 3 & 2 & 1 \\
-    5 & \red 4 & \blue 3 & 2 & 1 \\
-    5 & 4 & \red 3 & \blue 2 & 1 \\
-    5 & 3 & 1 & \red 4 & \blue 2 \\ 
-    \end{bmatrix}
-    $$
+$$
+\begin{bmatrix}
+\color{orange} 5 & 4 & 3 & 2 & \color{red} 1 \\
+\color{red} 5 & \color{orange} 4 & 3 & 2 & 1 \\
+5 & \color{red} 4 & \color{orange} 3 & 2 & 1 \\
+5 & 4 & \color{red} 3 & \color{orange} 2 & 1 \\
+5 & 3 & 1 & \color{red} 4 & \color{orange} 2 \\ 
+\end{bmatrix}
+$$
     
 - or we give the first course to student $E$, and then all the allocations of the 4 remaining course to students $A,B,C,D$ will give the same well-being vector since they have the same preferences; so we get the vector $(5,4,3,2,1)$ anyway.
     
-    $$
-    \begin{bmatrix}
-    5 & \green 4 & 3 & 2 & 1 \\
-    5 & 4 & \green 3 & 2 & 1 \\
-    5 & 4 & 3 & \green 2 & 1 \\
-    5 & 4 & 3 & 2 & \green 1 \\
-    \green 5 & 3 & 1 & 4 & 2 \\ 
-    \end{bmatrix}
-    $$
+$$
+\begin{bmatrix}
+5 & \color{green} 4 & 3 & 2 & 1 \\
+5 & 4 & \color{green} 3 & 2 & 1 \\
+5 & 4 & 3 & \color{green} 2 & 1 \\
+5 & 4 & 3 & 2 & \color{green} 1 \\
+\color{green} 5 & 3 & 1 & 4 & 2 \\ 
+\end{bmatrix}
+$$
     
 
 But $(5,4,3,2,1)$ is clearly normatively inefficient, so we have to choose between $(5,4,4,3,1)$ and $(5,4,3,2,2)$
@@ -417,21 +420,21 @@ And we can move on to greater $n$ in the same way. The dilemma is $(n,n-1,\dots,
 
 $$
 \begin{bmatrix}
-\blue n & n-1 & n-2 & \dots & 5 & 4 & 3 & 2 & \red 1 \\
-\red n & \blue {n-1} & n-2 & \dots & 5 & 4 & 3 & 2 & 1 \\
-n & \red {n-1} & \blue {n-2} & \dots & 5 & 4 & 3 & 2 & 1 \\
+\color{orange} n & n-1 & n-2 & \dots & 5 & 4 & 3 & 2 & \color{red} 1 \\
+\color{red} n & \color{orange} {n-1} & n-2 & \dots & 5 & 4 & 3 & 2 & 1 \\
+n & \color{red} {n-1} & \color{orange} {n-2} & \dots & 5 & 4 & 3 & 2 & 1 \\
 \vdots & \vdots & \vdots & \vdots  & \vdots & \vdots & \vdots & \vdots & \vdots \\
-n & n-1 & n-2 & \dots & \blue 5 & 4 & 3 & 2 & 1 \\
-n & n-1 & n-2 & \dots & \red 5 & \blue 4 & 3 & 2 & 1 \\
-n & n-1 & n-2 & \dots & 5 & \red 4 & \blue 3 & 2 & 1 \\
-n & n-1 & n-2 & \dots & 5 & 4 & \red 3 & \blue 2 & 1 \\
-n & n-1 & n-2 & \dots & 5 & \bf 3 & \bf 1 & \red {\bf 4} & \blue {\bf 2} \\ 
+n & n-1 & n-2 & \dots & \color{orange} 5 & 4 & 3 & 2 & 1 \\
+n & n-1 & n-2 & \dots & \color{red} 5 & \color{orange} 4 & 3 & 2 & 1 \\
+n & n-1 & n-2 & \dots & 5 & \color{red} 4 & \color{orange} 3 & 2 & 1 \\
+n & n-1 & n-2 & \dots & 5 & 4 & \color{red} 3 & \color{orange} 2 & 1 \\
+n & n-1 & n-2 & \dots & 5 & \bf 3 & \bf 1 & \color{red} {\bf 4} & \color{orange} {\bf 2} \\ 
 \end{bmatrix}
 $$
 
 ## $n\geq2$ students, $p\geq 4$ courses, $n/p$ slots per course
 
-Remark: we need that $n/p\in\N^\star$, so $p|n$ ($p$ divides $n$).
+Remark: we need that $n/p\in\mathbb N^\star$, so $p|n$ ($p$ divides $n$).
 
 ### Example: 8 students, 4 courses, 2 students per course
 
@@ -454,14 +457,14 @@ This profile of preferences raises the dilemma $(4,4,3,3,2,2,2,2)$ vs $(4,4,4,4,
 
 $$
 \begin{bmatrix}
-\blue 4 & 3 & 2 & \red 1 \\
-\blue 4 & 3 & 2 & \red 1 \\
-\red 4 & \blue 3 & 2 & 1 \\
-\red 4 & \blue 3 & 2 & 1 \\
-4 & \red 3 & \blue 2 & 1 \\
-4 & \red 3 & \blue 2 & 1 \\
-3 & 1 & \red 4 & \blue 2 \\ 
-3 & 1 & \red 4 & \blue 2 \\ 
+\color{orange} 4 & 3 & 2 & \color{red} 1 \\
+\color{orange} 4 & 3 & 2 & \color{red} 1 \\
+\color{red} 4 & \color{orange} 3 & 2 & 1 \\
+\color{red} 4 & \color{orange} 3 & 2 & 1 \\
+4 & \color{red} 3 & \color{orange} 2 & 1 \\
+4 & \color{red} 3 & \color{orange} 2 & 1 \\
+3 & 1 & \color{red} 4 & \color{orange} 2 \\ 
+3 & 1 & \color{red} 4 & \color{orange} 2 \\ 
 \end{bmatrix}
 $$
 
@@ -476,14 +479,14 @@ We can also find other normatively efficient allocations, like $(4,4,4,3,3,2,2,1
 
 $$
 \begin{bmatrix}
-\green 4 & 3 & 2 & 1 \\
-\green 4 & 3 & 2 & 1 \\
-4 & \green 3 & 2 & 1 \\
-4 & \green 3 & 2 & 1 \\
-4 & 3 & \green 2 & 1 \\
-4 & 3 & 2 & \green 1 \\
-3 & 1 & \green 4 & 2 \\ 
-3 & 1 & 4 & \green 2 \\ 
+\color{green} 4 & 3 & 2 & 1 \\
+\color{green} 4 & 3 & 2 & 1 \\
+4 & \color{green} 3 & 2 & 1 \\
+4 & \color{green} 3 & 2 & 1 \\
+4 & 3 & \color{green} 2 & 1 \\
+4 & 3 & 2 & \color{green} 1 \\
+3 & 1 & \color{green} 4 & 2 \\ 
+3 & 1 & 4 & \color{green} 2 \\ 
 \end{bmatrix}
 $$
 
@@ -508,10 +511,10 @@ This profile of preferences raise the dilemma $(8,7,6,5,4,4,3,3)$ vs $(8,8,7,7,6
 
 $$
 \begin{bmatrix}
-\blue 8 & \blue 7 & 6 & 5 & 4 & 3 & \red 2 & \red 1 \\
-\red 8 & \red 7 & \blue 6 & \blue 5 & 4 & 3 & 2 & 1 \\
-8 & 7 & \red 6 & \red 5 & \blue 4 & \blue 3 & 2 & 1 \\
-6 & 5 & 2 & 1 & \red 8 & \red 7 & \blue 4 & \blue 3 \\ 
+\color{orange} 8 & \color{orange} 7 & 6 & 5 & 4 & 3 & \color{red} 2 & \color{red} 1 \\
+\color{red} 8 & \color{red} 7 & \color{orange} 6 & \color{orange} 5 & 4 & 3 & 2 & 1 \\
+8 & 7 & \color{red} 6 & \color{red} 5 & \color{orange} 4 & \color{orange} 3 & 2 & 1 \\
+6 & 5 & 2 & 1 & \color{red} 8 & \color{red} 7 & \color{orange} 4 & \color{orange} 3 \\ 
 \end{bmatrix}
 $$
 
@@ -519,10 +522,10 @@ Once again, we can easily find other normatively efficient allocations, like $(8
 
 $$
 \begin{bmatrix}
-\green 8 & \green 7 & 6 & 5 & 4 & 3 & 2 & 1 \\
-8 & 7 & \green 6 & \green 5 & 4 & 3 & 2 & 1 \\
-8 & 7 & 6 & 5 & 4 & \green 3 & \green 2 & 1 \\
-6 & 5 & 2 & 1 & \green 8 & 7 & 4 & \green 3 \\ 
+\color{green} 8 & \color{green} 7 & 6 & 5 & 4 & 3 & 2 & 1 \\
+8 & 7 & \color{green} 6 & \color{green} 5 & 4 & 3 & 2 & 1 \\
+8 & 7 & 6 & 5 & 4 & \color{green} 3 & \color{green} 2 & 1 \\
+6 & 5 & 2 & 1 & \color{green} 8 & 7 & 4 & \color{green} 3 \\ 
 \end{bmatrix}
 $$
 
@@ -532,18 +535,18 @@ $$
 
 $$
 \begin{bmatrix}
-\blue 8 & \blue 7 & 6 & 5 & 4 & 3 & \red 2 & \red 1 \\
-\blue 8 & \blue 7 & 6 & 5 & 4 & 3 & \red 2 & \red 1 \\
-\blue 8 & \blue 7 & 6 & 5 & 4 & 3 & \red 2 & \red 1 \\
-\red 8 & \red 7 & \blue 6 & \blue 5 & 4 & 3 & 2 & 1 \\
-\red 8 & \red 7 & \blue 6 & \blue 5 & 4 & 3 & 2 & 1 \\
-\red 8 & \red 7 & \blue 6 & \blue 5 & 4 & 3 & 2 & 1 \\
-8 & 7 & \red 6 & \red 5 & \blue 4 & \blue 3 & 2 & 1 \\
-8 & 7 & \red 6 & \red 5 & \blue 4 & \blue 3 & 2 & 1 \\
-8 & 7 & \red 6 & \red 5 & \blue 4 & \blue 3 & 2 & 1 \\
-6 & 5 & 2 & 1 & \red 8 & \red 7 & \blue 4 & \blue 3 \\
-6 & 5 & 2 & 1 & \red 8 & \red 7 & \blue 4 & \blue 3 \\
-6 & 5 & 2 & 1 & \red 8 & \red 7 & \blue 4 & \blue 3 \\
+\color{orange} 8 & \color{orange} 7 & 6 & 5 & 4 & 3 & \color{red} 2 & \color{red} 1 \\
+\color{orange} 8 & \color{orange} 7 & 6 & 5 & 4 & 3 & \color{red} 2 & \color{red} 1 \\
+\color{orange} 8 & \color{orange} 7 & 6 & 5 & 4 & 3 & \color{red} 2 & \color{red} 1 \\
+\color{red} 8 & \color{red} 7 & \color{orange} 6 & \color{orange} 5 & 4 & 3 & 2 & 1 \\
+\color{red} 8 & \color{red} 7 & \color{orange} 6 & \color{orange} 5 & 4 & 3 & 2 & 1 \\
+\color{red} 8 & \color{red} 7 & \color{orange} 6 & \color{orange} 5 & 4 & 3 & 2 & 1 \\
+8 & 7 & \color{red} 6 & \color{red} 5 & \color{orange} 4 & \color{orange} 3 & 2 & 1 \\
+8 & 7 & \color{red} 6 & \color{red} 5 & \color{orange} 4 & \color{orange} 3 & 2 & 1 \\
+8 & 7 & \color{red} 6 & \color{red} 5 & \color{orange} 4 & \color{orange} 3 & 2 & 1 \\
+6 & 5 & 2 & 1 & \color{red} 8 & \color{red} 7 & \color{orange} 4 & \color{orange} 3 \\
+6 & 5 & 2 & 1 & \color{red} 8 & \color{red} 7 & \color{orange} 4 & \color{orange} 3 \\
+6 & 5 & 2 & 1 & \color{red} 8 & \color{red} 7 & \color{orange} 4 & \color{orange} 3 \\
 \end{bmatrix}
 $$
 
@@ -564,31 +567,31 @@ $$
 
 $$
 \begin{bmatrix}
-\blue a & b & c & \red d \\
-\red a & \blue b & c & d \\
-a & \red b & \blue c & d \\
-b & d & \red a & \blue c \\ 
+\color{orange} a & b & c & \color{red} d \\
+\color{red} a & \color{orange} b & c & d \\
+a & \color{red} b & \color{orange} c & d \\
+b & d & \color{red} a & \color{orange} c \\ 
 \end{bmatrix}
 $$
 
-$(a,b,c,c)$ is always better than $(a,a,b,d)$ for an egalitarian, but for the dilemma to emerge, we need the utilitarist view to disagree, i.e. we need $2c<a+d$. It is always true for a convex utility function (where $a-b>b-c>c-d$), since we then have:
+$(a,b,c,c)$ is always better than $(a,a,b,d)$ for an egalitarian, but for the dilemma to emerge, we need the utilitarian view to disagree, i.e. we need $2c < a+d$. It is always true for a convex utility function (where $a-b>b-c>c-d$), since we then have:
 
 $$
-\begin{align*}
+\begin{align}
 a+d &>b+c \\
 &\geq c+c \\
 &=2c
-\end{align*}
+\end{align}
 $$
 
 Example
 
 $$
 \begin{bmatrix}
-\blue {10} & 6 & 3 & \red 1 \\
-\red {10} & \blue 6 & 3 & 1 \\
-10 & \red 6 & \blue 3 & 1 \\
-6 & 1 & \red {10} & \blue 6 \\ 
+\color{orange} {10} & 6 & 3 & \color{red} 1 \\
+\color{red} {10} & \color{orange} 6 & 3 & 1 \\
+10 & \color{red} 6 & \color{orange} 3 & 1 \\
+6 & 1 & \color{red} {10} & \color{orange} 6 \\ 
 \end{bmatrix}
 $$
 
