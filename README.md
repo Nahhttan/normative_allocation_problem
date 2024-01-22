@@ -2,13 +2,14 @@
 
 _Nathan LANGLOIS, personal thoughts, inspired by courses allocation mechanisms in French Grandes Écoles._
 
-A more homogenous version in terms of languages will come soon! :)
+NOTE : une version française est disponible dans le repo :)
+
 
 # Introduction: framework
 
 ## Individuals, courses and preferences
 
-Let 4 students be Alice, Bob, Carl, and David. We will denote them $A,B,C,D$. We suppose they have to rank 4 courses $X,Y,Z,T$ that are proposed, with one constraint: each course can be offered to one and only one student.
+Let 4 students be Alice, Bob, Carl, and David. We will denote them $A,B,C,D$. We suppose they have to rank 4 courses $X,Y,Z,T$ that are proposed.
 
 Once the students have given their preferences (as an ordering, i.e. a binary relation that is reflexive, transitive and complete), an allocation mechanism occurs to allocate each course to one student, so that in the end, every student gets exactly one course and every course is allocated to exactly one student.
 
@@ -16,8 +17,8 @@ CAREFUL: the framework looks like a classic Arrovian framework, but it is not. T
 
 To put it more intuitively,
 
-- in the Arrovian framework, everybody is happier and the job is easy if everybody has the same preferences;
-- in the framework here, everybody is happier and the job is easy if nobody has the same preferences (so that everybody can get the course they prefer).
+- in the Arrovian framework, everybody is happier and the job is easy if everybody has the same preferences (the unanimously preferred alternative is chosen);
+- in the framework here, everybody is happier and the job is easy if nobody has the same preferences (so that each student can be assigned the course they prefer).
 
 ## Preferences representation: the profile of preferences
 
@@ -48,7 +49,7 @@ Z & X & T & Y \\
 \end{bmatrix}
 $$
 
-In what follows, we will refer to the set of preferences of as the _profile of preferences_, to use Arrow's expression.
+In what follows, we will refer to the set of preferences as the _profile of preferences_, to use Arrow's expression.
 
 ### Allocation mechanism, linear well-being assumption
 
@@ -56,7 +57,7 @@ We now suppose that the allocation mechanism aims at maximizing social welfare (
 
 (This is a strong assumption. Non-linear well-being should be considered in the future; see extensions.)
 
-Now, we can represent the profile of preferences, i.e. the preferences of $A,B,C,D$, in a simplier way: the following matrix is such that each row now corresponds to a student, and each columns corresponds to n course.
+Now, we can represent the profile of preferences, i.e. the preferences of $A,B,C,D$, in a simplier way: the following matrix is such that each row now corresponds to a student, and each columns corresponds to a course.
 
 $$
 \begin{array}{rcccc}
@@ -124,13 +125,13 @@ $$
 But in the former example, what is preferable? $(4,3,2,2)$ or $(4,4,3,1)$?
 
 - The utilitarian view would state that $(4,4,3,1)$ is better, because the sum of its components amounts to $12$, and the sum of $(4,3,2,2)$ is only $11$.
-- The egalitarian view, based on the leximin method, would say that $(4,3,2,2)$ is better, because its minimum component is $2$, and the minimum of $(4,4,3,1)$ is only $1$.
+- The egalitarian view, based on the leximin criterion, would say that $(4,3,2,2)$ is better, because its minimum component is $2$, and the minimum of $(4,4,3,1)$ is only $1$.
 
 Moreover, it appears (and can easily be proven) that it cannot be found any allocation that would reconciliates both view by being better than both allocations according to both views. So we are stuck with a moral conflict.
 
-There is thus no best answer to this question of which allocation is preferable: it is all about which theory of justice we believe in, which _normative conception_ we adopt.
+There is no best answer to this question of which allocation is preferable: it is all about which theory of justice we believe in, which _normative conception_ we adopt.
 
-We have just showed something important: to allocate 4 courses to 4 students with one course per student, a mechanism must necessarily choose some normative conception, since (at least) two normative conceptions come into conflict.
+We have just showed something important: to allocate 4 courses to 4 students with one course per student, an allocation mechanism must necessarily choose some normative conception, since (at least) two normative conceptions come into conflict.
 
 Is it always the case, no matter the number of courses and the number of students?
 
@@ -146,49 +147,51 @@ If it is the case, the heavy corollary is that any allocation algorithm designed
 
 # Formally put
 
-On considère le cas simple avec $n$ étudiants, $n$ cours à choisir et un cours alloué à chaque étudiant (et donc un seul étudiant par cours).
+We consider the simple case with $n$ students, $n$ courses to be chosen, and one course assigned to each student (and therefore only one student per course).
+
 
 ## Definitions
 
-- **Préférences** : on nomme _préférences_ une liste ordonnée de cours qui traduit les préférences d'un étudiant.
+- **Preferences**: an ordered list of courses reflecting a student's preferences is called _preferences_.
 
-- **Profil de préférences** : l'ensemble des préférences de chaque étudiant forme un _profil de préférences_ que l'on peut résumer dans une matrice où chaque ligne représente les préférences d'un étudiant.
+- **Profile of preferences** : the set of preferences of all students forms a _preference profile_ that can be summarized in a matrix where each row represents the preferences of a student.
 
-- **Allocation** : on nomme _allocation_ tout $n$-uplet de cours, traduisant le fait que le $i$<sup>e</sup> cours du $n$-uplet est affecté au $i$<sup>e</sup> étudiant (pour un profil de préférences donné).
+- **Allocation**: any tuple of courses is called an _allocation_, meaning that the i<sup>th</sup> course in the tuple is assigned to the i<sup>th</sup> student (for a given profile of preferences).
 
-- **Satisfaction** : on nomme _satisfaction_ pour une allocation le vecteur dont la $i$<sup>e</sup> composante est le bien-être de l'étudiant $i$. 
+- **Satisfaction**: _satisfaction_ for an allocation is the "well-being vector", i.e. the vector whose $i$<sup>th</sup> component is student $i$'s well-being.
 
-   Note : puisque toute conception normative respectable respecte la condition d'anonymat (symétrie des individus), on pourra se permettre d'utiliser le terme _satisfaction_ pour désigner ce même vecteur rangé par ordre décroissant.
+    Note: since any respectable normative design respects the condition of anonymity (symmetry of individuals), we may take the liberty of using the term satisfaction to designate this same vector arranged in descending order.
 
-- **Préférabilité selon une conception normative** : une allocation $a$ est dite _préférable à $b$ selon la conception normative_ $u$ si la satisfaction de $a$ est préférée à celle de $b$ selon $u$ (pour un profil de préférences donné).
+- **Preferability according to a normative conception**: an allocation $a$ is said to be _preferable to $b$ according to the normative conception_ $u$ if the satisfaction of $a$ is preferred to that of $b$ according to $u$ (for a given profile of preferences).
 
-   On note $a\succ_u b$ si la préférence est stricte, $a\succeq_u b$ si elle est large, et $a\sim_u b$ s'il ya indifférence.
+   We note $a\succ_u b$ if the preference is strict, $a\succeq_u b$ if it is broad, and $a\sim_u b$ if there is indifference.
 
-- **Dominance normative** : une allocation $a$ _domine normativement_ $b$ si $a\succeq_u b$ pour toute conception normative $u$ (pour un profil de préférences et un ensemble de conceptions normatives donnés, non précisés s'il n'y a pas d'ambiguïté).
+- **Normative dominance**: an allocation $a$ _normatively dominates_ $b$ if $a\succeq_u b$ for any normative conception $u$ (for a given preference profile and set of normative conceptions, unspecified if unambiguous).
 
-- **Efficacité normative** : une allocation $a$ est dite _normativement efficace_ si elle n'est normativement dominée par aucune autre allocation (pour un profil de préférences et un ensemble de conceptions normatives donnés, non précisés s'il n'y a pas d'ambiguïté).
+- **Normative efficiency**: an allocation $a$ is said to be _normatively efficient_ if it is not normatively dominated by any other allocation (for a given profile of preferences and set of normative conceptions, unspecified if unambiguous).
 
+- **Extensions to satisfactions**: we can easily extend the definitions of _preferability according to a normative conception_, _normative dominance_ and _normative efficiency_ to satisfactions (vectors of well-being).
 
-# Partie computationnelle
-
-
-## Fonctionnement
-
-Le notebook présent dans se repo permet de prouver computationnellement l'existence de profils de préférences qui créent un conflit normatif, pour $n\in\{4,5\}$, et son inexistence pour $n=3$.
-
-Plus largement, il permet d'exhiber chaque conflit normatif possible entre deux conceptions normatives données, pour $n$ donné, en donnant un profil de préférences donnant lieu à ce conflit.
-
-Note : la fonction n'affiche pas les doublons. Par exemple, si plusieurs profils de préférences _différents_ conduisent au _même_ conflit normatif (i.e., au _même_ ensemble d'allocations normativement efficace), alors un seul représentant sera affiché.
-
-Par exemple, `print_dilemmes(4, score_utilitarisme, score_leximin)` affiche tous les dilemmes possibles entre utilitarisme et égalitarisme pour $n=4$.
+# Computationnal part
 
 
-## Un exemple de bout en bout
+## How it works
 
-Cet exemple reprend celui de l'introduction, pas à pas.
+The notebook in this repo can be used to computationally prove the existence of profiles of preferences that create a normative conflict, for $n$, and its non-existence for $n=3$.
+
+More broadly, it allows us to display every possible normative conflict between two given normative conceptions, for a given $n$, by giving a preference profile giving rise to this conflict.
+
+Note: the function does not display duplicates. For example, if several _different_ profiles of preferences lead to the _same_ normative conflict (i.e., to the _same_ set of normatively efficient allocations), then only one representative will be displayed.
+
+For example, `print_dilemmas(4, score_utilitarisme, score_leximin)` displays all possible dilemmas between utilitarianism and egalitarianism for $n=4$.
+
+
+## An example from start to finish
+
+This example repeats the one in the introduction, step by step.
 
 ~~~
-Combinaison de préférences
+Profil de préférences
 
 [['A' 'B' 'C' 'D']
  ['A' 'B' 'C' 'D']
@@ -196,19 +199,19 @@ Combinaison de préférences
  ['C' 'A' 'D' 'B']]
 ~~~
 
-Considérons la combinaison de préférences ci-dessus. Chaque ligne de la matrice représente un élève, plus précisément les préférences d'un élève : l'élève 1 préfère A, puis B, C, D.
+Consider the above preference profile. Each row of the matrix represents a student, or more precisely, a student's preferences: student 1 prefers A, then B, C, D.
 
-Intuitivement, comment allouer optimalement les cours ? Puisque les élèves 1, 2, 3 préfèrent tous les trois A, on peut allouer A à l'un des trois seulement. Disons à 1. Et allouons C à 4, clairement (c'est son préféré et les autres ne l'aiment pas). Ensuite, peu de latitude : on alloue B à 2 et D à 4 (c'est pareil que de faire l'inverse). On obtient l'allocation (A, B, D, C), et la satisfaction associée $(4,3,1,4)$, ou $(4,4,3,1)$ par ordre décroissant.
+Intuitively, how can we best allocate lessons? Since students 1, 2 and 3 all prefer A, we can allocate A to only one of the three, say to 1. Let's say to 1. And let's allocate C to 4, clearly (it's his favorite and the others don't like him). Then, there's little latitude: we allocate B to 2 and D to 4 (it's the same as doing it the other way round). You get the allocation (A, B, D, C), and the associated satisfaction $(4,3,1,4)$, or $(4,4,3,1)$ in descending order.
 
-Mais dans l'option précédente, l'un des élèves est profondément insatisfait, avec 1 point. Peut-être pourrait-on faire en sorte que personne ne soit si malheureux. On pourrait allouer D à 4 : il aurait une satisfaction de $2>1$, et on s'assurerait que les élèves 1, 2, 3 n'aient pas leur dernier choix. On leur assignerait ensuite A, B et C indifféremment (puisqu'ils ont les mêmes préférences), par exemple A à 1, B à 2, C à 3. On obtient l'allocation (A, B, C, D), et la satisfaction associée $(4,3,2,2)$.
+But in the previous option, one of the students is deeply dissatisfied, with 1 point. Perhaps we could make sure that no one is so unhappy. We could allocate D to 4: he would have a satisfaction of $2>1$, and we'd make sure that students 1, 2, 3 don't get their last choice. We would then assign them A, B and C indifferently (since they have the same preferences), for example A to 1, B to 2, C to 3. We obtain the allocation (A, B, C, D), and the associated satisfaction $(4,3,2,2)$.
 
-Quelle option est la meilleure ? Si l'on considère les conceptions normatives utilitaristes et égalitaristes (en se basant pour cette dernière sur le critère du leximin), alors
-- $(4,4,3,1)\succ(4,3,2,2)$ pour un utilitariste puisque $4+4+3+1=12>11=4+3+3+2+2$ ;
-- $(4,3,2,2)\succ(4,4,3,1)$ pour un égalitariste, puisque le moins bien-loti est à $2$ dans le 1er cas, et seulement à $1$ dans le second cas.
+Which option is better? If we consider the utilitarian and egalitarian normative conceptions (based on the leximin criterion for the latter), then
+- $(4,4,3,1)\succ(4,3,2,2)$ for a utilitarian since $4+4+3+1=12>11=4+3+3+2+2$ ;
+- $(4,3,2,2)\succ(4,4,3,1)$ for an egalitarian, since the least well-loved is $2$ in the first case, and only $1$ in the second.
 
-C'est ce brainstorming, qui consiste à chercher les meilleures allocations - les allocations _normativement efficaces_ - que réalise ce code. Voici l'output pour la combinaison de préférences considérée, et qui correspond à notre dilemme.
+It is this brainstorming, looking for the best allocations - the _normatively efficient_ allocations - that this code performs. Below is the output for the preference profile under consideration, which corresponds to our dilemma.
 
-Note : on a codé une fonction de score pour le leximin, qui fonctionne tant que les niveaux de satisfaction sont inférieurs à 9. Elle est facilement adaptable.
+Note: I have coded a score function for the leximin, which works as long as satisfaction levels are below 9. It's easily adaptable.
 
 ~~~
    Satisfaction  Score_1  Score_2    Allocation
@@ -217,15 +220,15 @@ Note : on a codé une fonction de score pour le leximin, qui fonctionne tant que
 ~~~
 
 
-## [À venir / incomplet] Annexe : comment l'algorithme détermine-t-il les allocations normativement efficaces ?
+## [To come / incomplete] Appendix: How does the algorithm determine normatively efficient allocations?
 
-On construit cet ensemble par récurrence. On note $\mathcal A_{NE}^P$ l'ensemble "provisoire" des allocations normativement efficaces. Soient une combinaison de préférences et $u,v$ deux conceptions normatives.
+We construct this set by recurrence. Let $\mathcal A_{NE}^P$ be the "provisional" set of normatively efficient allocations. Let be a profile of preferences and $u,v$ two normative conceptions.
 
-Il y a autant d'étapes que d'allocations possibles (i.e., $n!$).
+There are as many steps as there are possible allocations (i.e., $n!$).
 
-À l'étape 1, $\mathcal A_{NE}^P=\emptyset$. On considère l'allocation $a_1$. On ajoute $a_1$ à $\mathcal A_{NE}^P$, puisque $a_1$ est normativement efficace au sein de l'ensemble des allocations $\mathcal A_{NE}^P \cup \{a_1\}$.
+In step 1, $\mathcal A_{NE}^P=\emptyset$. Consider allocation $a_1$. We add $a_1$ to $\mathcal A_{NE}^P$, since $a_1$ is normatively efficient within the set of allocations $\mathcal A_{NE}^P \cup \{a_1\}$.
 
-À l'étape $n$, supposons qu'on a $\mathcal A_{NE}^P=\{a_{(1)},\dots,a_{(n)}\}$ avec
+At step $n$, suppose we have $\mathcal A_{NE}^P=\{a_{(1)},\dots,a_{(n)}\}$ with
 
 $$
 \begin{cases}
@@ -234,7 +237,7 @@ $$
 \end{cases}
 $$
 
-On considère l'allocation $a_{n+1}$. Alors il existe $i,j$ tels que
+Consider the allocation $a_{n+1}$. Then there exist $i,j$ such that
 
 
 $$
@@ -244,7 +247,7 @@ $$
 \end{cases}
 $$
 
-Prenons un exemple pour intuiter la suite. Traduisons ces relations de préférences par des inégalités sur des scores. On va considérer qu'on peut quantifier la recommandabilité des alloactions selon les normes $u$ et $v$ via des fonctions de score $s_u$ et $s_v$. Par exemple, si $u$ désigne l'utilitarisme, $s_u(\hat a)=7$ si la satisfaction de $\hat a$ est $(3,3,1)$.
+Let's take an example to illustrate what follows. Let's translate these preference relations into inequalities on scores. We'll consider that we can quantify the recommendability of allocations according to the $u$ and $v$ norms via score functions $s_u$ and $s_v$. For example, if $u$ denotes utilitarianism, $s_u(\hat a)=7$ if $\hat a$'s satisfaction is $(3,3,1)$.
 
 $$
 \begin{cases}
@@ -253,48 +256,47 @@ $$
 \end{cases}
 $$
 
-- Si $(s_u(a_{n+1}), s_v(a_{n+1}))=(7, 15)$, alors $a_{n+1}$ est normativement efficace, et s'intègre parfaitement dans la chaîne, entre $a_{(2)}$ et $a_{(3)}$.
-- Si $(s_u(a_{n+1}), s_v(a_{n+1}))=(7, 13)$, alors $a_{n+1}$ ne sera pas normativement efficace, puisque normativement dominée par $a_{(2)}$ car $7<8$ d'une part et $13<14$ d'autre part.
-- Si $(s_u(a_{n+1}), s_v(a_{n+1}))=(7, 19)$, alors non seulement $a_{n+1}$ est normativement efficace, mais elle élimine $a_{(3)}$ et $a_{(4)}$.
+- If $(s_u(a_{n+1}), s_v(a_{n+1}))=(7, 15)$, then $a_{n+1}$ is normatively efficient, and fits perfectly into the chain, between $a_{(2)}$ and $a_{(3)}$.
+- If $(s_u(a_{n+1}), s_v(a_{n+1}))=(7, 13)$, then $a_{n+1}$ will not be normatively efficient, since it is normatively dominated by $a_{(2)}$ because $7<8$ on the one hand and $13<14$ on the other.
+- If $(s_u(a_{n+1}), s_v(a_{n+1}))=(7, 19)$, then not only is $a_{n+1}$ normatively efficient, but it eliminates $a_{(3)}$ and $a_{(4)}$.
+
+# Areas for improvement
 
 
-# Axes d'amélioration
+## Taking into account the symmetry of alternatives
+
+For the moment, the code is reviewing all possible profiles of preferences, taking into account the symmetry of the individuals: $(ABC, ABC, CBA)$ and $(CBA, ABC, ABC)$ are identical in this respect, so the code will only look at the first of the two.
+
+But you can also reduce the number of profiles of preferences to be studied.
+
+For example: $(ABC, ACB, ACB) \sim (ABC, ABC, ACB)$ (just replace $B$ by $C$ and $C$ by $B$, which can be done by symmetry) $\sim (XYZ, XYZ, XZY)$ more generally.
 
 
-## Prise en compte de la symétrie des alternatives
+## Non-linear satisfaction function
 
-Pour l'instant, on passe en revue toutes les combinaisons de préférences possibles en prenant en compte la symétrie des individus : $(ABC, ABC, CBA)$ et $(CBA, ABC, ABC)$ sont identiques à cet égard, donc le code ne regardera que le premier des deux.
-
-Mais on peut encore diminuer le nombre de combinaisons de préférences à étudier.
-
-Ex : $(ABC, ACB, ACB) \sim (ABC, ABC, ACB)$ (il suffit de remplacer $B$ par $C$ et $C$ par $B$, ce qu'on peut faire par symétrie) $\sim (XYZ, XYZ, XZY)$ plus généralement.
-
-
-## Fonction de satisfaction non linéaire
-
-À ce stade, la satisfaction est linéaire :
-- un 1er choix donne $n$ points de satisfaction,
-- un 2e choix donne $n-1$,
+At this stage, satisfaction is linear:
+- a 1st choice gives $n$ points of satisfaction,
+- a 2nd choice gives $n-1$,
 - ...
-- un dernier choix donne $1$.
+- a last choice gives $1$.
 
-On devrait pouvoir utiliser des fonctions de satisfaction non linéaires, par exemple
-- convexes (un élève aime plus son 1er choix par rapport à son 2e, que son 2e par rapport à son 3e ; i.e., il veut autant que possible son choix 1, et à la rigueur peu lui importe 2 ou 3),
-- concaves (un élève aime plus son 2e choix par rapport à son 3e, que son 1er par rapport à son 2e ; i.e., il veut autant que possible ne pas avoir son choix 3, et à la rigueur peu lui importe 1 ou 2).
+We should be able to use non-linear satisfaction functions, for example
+- convex (a student likes his 1st choice more than his 2nd, than his 2nd more than his 3rd; i.e., he wants his choice 1 as much as possible, and doesn't really care about 2 or 3),
+- concave (a student likes his 2nd choice more than his 3rd, than his 1st choice more than his 2nd; i.e., he wants as much as possible not to have his 3rd choice, and doesn't really care about 1 or 2).
 
 
-## Comparer plus de 2 conceptions normatives
+## Comparing more than 2 normative conceptions
 
-Pour l'instant, on regarde les dilemmes entre 2 conceptions normatives uniquement.
+For the moment, the code looks at dilemmas between 2 normative conceptions only.
 
-On devrait pouvoir en comparer davantage, déjà 3 dans un premier temps. On donne quelques exemples de ce que cela donnerait pour 3 conceptions normatives, notées $u,v,w$.
+It should be possible to compare more than that, starting with 3. Here are a few examples of what this would look like for 3 normative conceptions, denoted $u,v,w$.
 
-### Exemple pertinent 1
+### Relevant example 1
 
 
 $$
 \begin{cases}
-a &\succ_u& b &\succ_u& c \\
+a &\succ_u& b &\succ_u& c \\\
 b &\succ_v& a &\succ_v& c \\
 c &\succ_w& a &\succ_w& b 
 \end{cases}
@@ -302,7 +304,7 @@ $$
 
 ### Exemple pertinent 2
 
-Dans l'exemple suivant, on pourrait croire que $c$ n'est pas une allocation efficace, car on peut faire mieux selon toutes les conceptions normatives. En réalité, $c$ est bien une allocation efficace, car aucune allocation ne la domine normativement, i.e. lui est préférable selon toutes les conceptions normatives ; il faut bien garder en tête que c'est cela, le critère d'efficacité pour une allocation.
+In the following example, one could believe that $c$ is not a normatively efficient allocation, because better can be reached according to any normative conceptions. Actually, $c$ is an efficient allocation, because no allocation normatively dominates it, i.e., is preferable to it according to any normative conception; one should keep in mind that the latter is the criterion for normative efficiency for an allocation.
 
 $$
 \begin{cases}
@@ -313,9 +315,9 @@ b &\succ_w& c &\succ_w& a
 $$
 
 
-### Exemple non pertinent
+### Irrelevant example
 
-Ici, $c$ est dominée normativement par $b$, donc n'est pas normativement efficace.
+Here, $c$ is normatively dominated by $b$, so it is not normatively efficient.
 
 $$
 \begin{cases}
@@ -326,27 +328,27 @@ b &\succ_w& a &\succ_w& c
 $$
 
 
-## Augmenter le nombre de cours par élèves, d'élèves par cours
+## Increase the number of courses per student, of students per course
 
-On est pour l'instant dans le cas simple où $n$ = nombre d'élèves = nombre de cours.
+So far, the code only adress the simple case where $n$ = number of students = number of courses.
 
-À voir ce qu'il est numériquement possible de faire (en termes de capacité informatique), mais il serait intéressant de checker l'existence de dilemmes dans des cas plus complexes.
+It remains to be seen what is numerically possible (in terms of computing capacity), but it would be interesting to check the existence of dilemmas in more complex cases.
 
-Par exemple (relativement simple) : 8 cours, 4 élèves, 2 cours à choisir par élève
-
-
-## Usage réel pour une combinaison de préférences donnée
-
-L'usage premier de ce code était de prouver l'existence de combinaisons de préférences qui créent un dilemme.
-
-Mais il serait intéressant de rendre ce code opérationnel pour, étant donné une combinaison de préférences (un input réel, par exemple les voeux de cours réels des élèves d'une école/université), donner toutes les allocations efficaces (en fonction de fonctions de score, i.e. de conceptions de la justice distributive, données).
+For example (relatively simple): 8 courses, 4 students, 2 courses to choose per student.
 
 
-# Partie théorique
+## Real-world use for a given preference profile
+
+The primary use of this code was to prove the existence of profiles of preferences that raise to a dilemma.
+
+But it would be interesting to make this code operational to, given a profile preferences (a real input, for example the real course wishes of students at a school/university), give all normatively efficient allocations (as a function of given score functions, i.e. conceptions of distributive justice).
+
+
+# Theoretical part
 
 Here, I try to answer the problematic given in the introduction: _does there exist (at least) one profile of preferences that poses a moral conflict to the allocation mechanism, for any number of courses and students?_
 
-To do so, I will consider the conflict "utilitarianism vs egalitarianism" (egalitarianism is represented by the leximin criterium).
+To do so, I will consider the conflict "utilitarianism vs egalitarianism" (egalitarianism is represented by the leximin criterion).
 
 I use the way profiles of preferences are represented in the introduction to skip the explicit courses names and directly consider the matrix of preferences, which is enough to show results.
 
@@ -354,7 +356,7 @@ I use the way profiles of preferences are represented in the introduction to ski
 
 ### $n=3$
 
-There is no preferences profile that creates a dilemma. It exists two “dilemma” vectors : $(3,3,1)$ and $(2,2,2)$ but it can be shown that the vector $(3,3,2)$ can always be reached if $(3,3,1)$ and $(2,2,2)$ can. 
+There is no profile of preferences that raises a dilemma. It exists two “dilemma” vectors : $(3,3,1)$ and $(2,2,2)$ but it can be shown that the vector $(3,3,2)$, that normatively dominates those two vectors, can always be reached if $(3,3,1)$ and $(2,2,2)$ can. 
 
 ### $n=4$
 
@@ -416,7 +418,7 @@ $$
 
 But $(5,4,3,2,1)$ is clearly normatively inefficient, so we have to choose between $(5,4,4,3,1)$ and $(5,4,3,2,2)$
 
-And we can move on to greater $n$ in the same way. The dilemma is $(n,n-1,\dots,5,4,3,2,2)$ vs $(n,n-1,\dots,5,4,4,3,1)$ appears in color.
+And we can move on to a greater $n$ in the same way. The dilemma is $(n,n-1,\dots,5,4,3,2,2)$ vs $(n,n-1,\dots,5,4,4,3,1)$, and appears in color.
 
 $$
 \begin{bmatrix}
