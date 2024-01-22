@@ -201,7 +201,7 @@ Profil de préférences
 
 Consider the above preference profile. Each row of the matrix represents a student, or more precisely, a student's preferences: student 1 prefers A, then B, C, D.
 
-Intuitively, how can we best allocate lessons? Since students 1, 2 and 3 all prefer A, we can allocate A to only one of the three, say to 1. Let's say to 1. And let's allocate C to 4, clearly (it's his favorite and the others don't like him). Then, there's little latitude: we allocate B to 2 and D to 4 (it's the same as doing it the other way round). You get the allocation (A, B, D, C), and the associated satisfaction $(4,3,1,4)$, or $(4,4,3,1)$ in descending order.
+Intuitively, how can we best allocate lessons? Since students 1, 2 and 3 all prefer A, we can allocate A to only one of the three, say to 1. Let's say to 1. And let's allocate C to 4, clearly (it's his favorite and the others don't like him). Then, there's little latitude: we allocate B to 2 and D to 3 (it's the same as doing it the other way round). You get the allocation (A, B, D, C), and the associated satisfaction $(4,3,1,4)$, or $(4,4,3,1)$ in descending order.
 
 But in the previous option, one of the students is deeply dissatisfied, with 1 point. Perhaps we could make sure that no one is so unhappy. We could allocate D to 4: he would have a satisfaction of $2>1$, and we'd make sure that students 1, 2, 3 don't get their last choice. We would then assign them A, B and C indifferently (since they have the same preferences), for example A to 1, B to 2, C to 3. We obtain the allocation (A, B, C, D), and the associated satisfaction $(4,3,2,2)$.
 

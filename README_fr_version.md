@@ -3,9 +3,9 @@
 _Nathan LANGLOIS, pensées personnelles, inspirées par les mécanismes d'allocation des cours dans les Grandes Écoles françaises._
 
 
-# Introduction: framework
+# Introduction : cadre théorique
 
-## Individuals, courses and preferences
+## Étudiants, cours et préférences
 
 Soient 4 étudiants Alice, Bob, Carl et David. On les notera $A,B,C,D$. On suppose qu'ils doivent classer 4 cours $X,Y,Z,T$ proposés par ordre de préférence.
 
@@ -198,7 +198,7 @@ Profil de préférences
 
 Considérons le profil de préférences ci-dessus. Chaque ligne de la matrice représente un étudiant, plus précisément les préférences d'un étudiant : l'étudiant 1 préfère A, puis B, C, D.
 
-Intuitivement, comment allouer optimalement les cours ? Puisque les étudiants 1, 2, 3 préfèrent tous les trois A, on peut allouer A à l'un des trois seulement. Disons à 1. Et allouons C à 4, clairement (c'est son préféré et les autres ne l'aiment pas). Ensuite, peu de latitude : on alloue B à 2 et D à 4 (c'est pareil que de faire l'inverse). On obtient l'allocation (A, B, D, C), et la satisfaction associée $(4,3,1,4)$, ou $(4,4,3,1)$ par ordre décroissant.
+Intuitivement, comment allouer optimalement les cours ? Puisque les étudiants 1, 2, 3 préfèrent tous les trois A, on peut allouer A à l'un des trois seulement. Disons à 1. Et allouons C à 4, clairement (c'est son préféré et les autres ne l'aiment pas). Ensuite, peu de latitude : on alloue B à 2 et D à 3 (c'est pareil que de faire l'inverse). On obtient l'allocation (A, B, D, C), et la satisfaction associée $(4,3,1,4)$, ou $(4,4,3,1)$ par ordre décroissant.
 
 Mais dans l'option précédente, l'un des étudiants est profondément insatisfait, avec 1 point. Peut-être pourrait-on faire en sorte que personne ne soit si malheureux. On pourrait allouer D à 4 : il aurait une satisfaction de $2>1$, et on s'assurerait que les étudiants 1, 2, 3 n'aient pas leur dernier choix. On leur assignerait ensuite A, B et C indifféremment (puisqu'ils ont les mêmes préférences), par exemple A à 1, B à 2, C à 3. On obtient l'allocation (A, B, C, D), et la satisfaction associée $(4,3,2,2)$.
 
