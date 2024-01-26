@@ -70,7 +70,7 @@ def print_allocations_lst(allocations_lst):
     
     """
     
-    - print une liste d'allocations proprement, en affichant le profilde préférences associée au préalable
+    - print une liste d'allocations proprement, en affichant le profil de préférences associé au préalable
     - repose sur la fonction df_allocations_lst
     
     
