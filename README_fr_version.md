@@ -162,7 +162,7 @@ On considère le cas simple avec $n$ étudiants, $n$ cours à choisir et un cour
 
    On note $a\succ_u b$ si la préférence est stricte, $a\succeq_u b$ si elle est large, et $a\sim_u b$ s'il ya indifférence.
 
-- **Dominance normative** : une allocation $a$ _domine normativement_ $b$ si $a\succeq_u b$ pour toute conception normative $u$ (pour un profil de préférences et un ensemble de conceptions normatives donnés, non précisés s'il n'y a pas d'ambiguïté).
+- **Dominance normative** : une allocation $a$ _domine normativement_ $b$ si $a\succeq_u b$ pour toute conception normative $u$ et $a\succ_v b$ pour une conception normative $v$ au moins (pour un profil de préférences et un ensemble de conceptions normatives donnés, non précisés s'il n'y a pas d'ambiguïté).
 
 - **Efficacité normative** : une allocation $a$ est dite _normativement efficace_ si elle n'est normativement dominée par aucune autre allocation (pour un profil de préférences et un ensemble de conceptions normatives donnés, non précisés s'il n'y a pas d'ambiguïté).
 

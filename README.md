@@ -166,7 +166,7 @@ We consider the simple case with $n$ students, $n$ courses to be chosen, and one
 
    We note $a\succ_u b$ if the preference is strict, $a\succeq_u b$ if it is broad, and $a\sim_u b$ if there is indifference.
 
-- **Normative dominance**: an allocation $a$ _normatively dominates_ $b$ if $a\succeq_u b$ for any normative conception $u$ (for a given preference profile and set of normative conceptions, unspecified if unambiguous).
+- **Normative dominance**: an allocation $a$ _normatively dominates_ $b$ if $a\succeq_u b$ for any normative conception $u$ and $a\succ_v b$ for one normative conception $v$ at least (for a given preference profile and set of normative conceptions, unspecified if unambiguous).
 
 - **Normative efficiency**: an allocation $a$ is said to be _normatively efficient_ if it is not normatively dominated by any other allocation (for a given profile of preferences and set of normative conceptions, unspecified if unambiguous).
 
