@@ -20,11 +20,11 @@ def df_allocations_lst(allocations_lst):
                        "Allocation": []})
 
     for allocation in allocations_lst:
-        df = df.append({"Satisfaction": allocation.satisfaction,
-                       "Score_1": allocation.score_1,
-                       "Score_2": allocation.score_2,
-                       "Allocation": allocation.uplet},
-                 ignore_index=True)
+        df = pd.concat([df, pd.DataFrame({"Satisfaction": allocation.satisfaction,
+                                          "Score_1": allocation.score_1,
+                                          "Score_2": allocation.score_2,
+                                          "Allocation": allocation.uplet})],
+                       ignore_index=True)
     df['Score_1'] = df['Score_1'].astype(int)
     df['Score_2'] = df['Score_2'].astype(int)
 
@@ -49,11 +49,11 @@ def df_allocations_lst_2(allocations_lst, score_function_1, score_function_2):
                        "Allocation": []})
 
     for allocation in allocations_lst:
-        df = df.append({"Satisfaction": allocation.satisfaction,
-                       "Score_1": score_function_1(allocation.satisfaction),
-                       "Score_2": score_function_2(allocation.satisfaction),
-                       "Allocation": allocation.uplet},
-                 ignore_index=True)
+        df = pd.concat([df, pd.DataFrame({"Satisfaction": allocation.satisfaction,
+                                          "Score_1": score_function_1(allocation.satisfaction),
+                                          "Score_2": score_function_2(allocation.satisfaction),
+                                          "Allocation": allocation.uplet})],
+                       ignore_index=True)
     df['Score_1'] = df['Score_1'].astype(int)
     df['Score_2'] = df['Score_2'].astype(int)
 
